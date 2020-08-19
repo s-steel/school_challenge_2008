@@ -25,7 +25,21 @@ class School
   def end_time
     finish = @start_time.to_i + @hours_in_school_day
     time = "#{finish}:00"
-    time 
+    time
+  end
+
+  def is_full_time
+    if @hours_in_school_day <= 4
+      false
+    else
+      true
+    end
+  end
+
+  def standard_student_names
+    @student_names.map.each do |name|
+      name.capitalize
+    end 
   end
 
 
