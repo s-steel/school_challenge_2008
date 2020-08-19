@@ -63,13 +63,22 @@ class SchoolTest < Minitest::Test
   end
 
   def test_standard_student_names
-    
+
     school = School.new('9:00', 7)
     school.add_student_name('Aurora')
     school.add_student_name('tim')
     school.add_student_name('megan')
 
     assert_equal ['Aurora', 'Tim', 'Megan'], school.standard_student_names
+  end
+
+  def test_convert_end_time_to_clock_time
+    school1 = School.new('9:00', 7)
+    school2 = School.new('9:00', 3)
+
+    assert_equal '4:00', school1.convert_end_time_clock_time
+    assert_equal '12:00', school2.convert_end_time_clock_time
+
   end
 
 end

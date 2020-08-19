@@ -39,7 +39,18 @@ class School
   def standard_student_names
     @student_names.map.each do |name|
       name.capitalize
-    end 
+    end
+  end
+
+  def convert_end_time_to_clock_time
+    finish = @start_time.to_i + @hours_in_school_day
+    if finish > 12
+      new_time = finish - 12
+      new_time.to_s
+      converted_time = "#{new_time}:00"
+    else
+      "#{finish}:00"
+    end
   end
 
 
